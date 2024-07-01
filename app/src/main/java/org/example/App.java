@@ -38,10 +38,7 @@ public class App {
 
     public void paradoxOfMontyHall(int countOfGames){
         int winCounterWhenSwitch = 0;
-        int loseCounterWhenSwitch = 0;
         int winCounterWhenStay = 0;
-        int loseCounterWhenStay = 0;
-        int loseCounter = 0;
         HashMap<Integer, String> gameResult = new HashMap<>();
 
         for (int i = 0; i < countOfGames; i++) {
@@ -50,10 +47,10 @@ public class App {
             int switchedDoor = switchDoor(chosenDoor, openedDoor);
             if (chosenDoor == CAR_DOOR){
                 winCounterWhenStay++;
-                gameResult.put(i, "Победа при оставлении первоначального выбора");
+                gameResult.put(i, "Win, when stay on first selected door");
             } else if (switchedDoor == CAR_DOOR) {
                 winCounterWhenSwitch++;
-                gameResult.put(i, "Победа при изменении первоначального выбора");
+                gameResult.put(i, "Win, when switched first selected door");
             }
         }
         getResults(countOfGames, winCounterWhenSwitch, winCounterWhenStay, gameResult);
@@ -64,7 +61,7 @@ public class App {
         double percentageOfStayWins = (double) (stayWins * 100) / totalGames;
         for (int i = 0; i < totalGames; i++) {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("Game № " + i + ": ");
+            stringBuilder.append("Game # " + i + ": ");
             stringBuilder.append(gameResult.get(i));
             stringBuilder.append("\n");
             System.out.println(stringBuilder);

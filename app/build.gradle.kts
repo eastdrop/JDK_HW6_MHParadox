@@ -23,13 +23,23 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+// https://mvnrepository.com/artifact/org.json/json
+    implementation("org.json:json:20240303")
+
+
 
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(20)
+    }
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "org.example.App"
     }
 }
 
